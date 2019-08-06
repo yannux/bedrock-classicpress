@@ -1,27 +1,21 @@
 {
-  "name": "roots/bedrock",
+  "name": "ynave/bedrock-classicpress",
   "type": "project",
   "license": "MIT",
-  "description": "WordPress boilerplate with modern development tools, easier configuration, and an improved folder structure",
-  "homepage": "https://roots.io/bedrock/",
+  "description": "ClassicPress boilerplate with modern development tools, easier configuration, and an improved folder structure forked from roots/bedrock",
+  "homepage": "https://github.com/yannux/bedrock-classicpress",
   "authors": [
     {
-      "name": "Scott Walkinshaw",
-      "email": "scott.walkinshaw@gmail.com",
-      "homepage": "https://github.com/swalkinshaw"
-    },
-    {
-      "name": "Ben Word",
-      "email": "ben@benword.com",
-      "homepage": "https://github.com/retlehs"
+      "name": "Yannux",
+      "email": "yannux@onbebop.net",
+      "homepage": "https://github.com/yannux"
     }
   ],
   "keywords": [
-    "bedrock", "composer", "roots", "wordpress", "wp", "wp-config"
+    "composer", "classicpress", "cp", "wp-config"
   ],
   "support": {
-    "issues": "https://github.com/roots/bedrock/issues",
-    "forum": "https://discourse.roots.io/category/bedrock"
+    "issues": "https://github.com/yannux/bedrock-classicpress/issues"
   },
   "config": {
     "preferred-install": "dist"
@@ -37,7 +31,7 @@
     "composer/installers": "^1.4",
     "vlucas/phpdotenv": "^3.4.0",
     "oscarotero/env": "^1.2.0",
-    "roots/wordpress": "5.2.2",
+    "classicpress/classicpress": "~1.0",
     "roots/wp-config": "1.0.0",
     "roots/wp-password-bcrypt": "1.0.0"
   },
@@ -56,6 +50,12 @@
   "scripts": {
     "post-root-package-install": [
       "php -r \"copy('.env.example', '.env');\""
+    ],
+    "post-install-cmd": [
+      "php -r \"unlink('web/wp/composer.json');\""
+    ],
+    "post-update-cmd": [
+      "php -r \"unlink('web/wp/composer.json');\""
     ],
     "test": [
       "phpcs"
